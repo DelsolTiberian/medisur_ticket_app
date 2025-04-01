@@ -2,6 +2,8 @@
     session_start();
 ?>
 
+<!DOCTYPE html>
+
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -22,7 +24,6 @@
             <input class="submit" type="submit" value="Connexion" />
 
             <?php
-
 
             ?>
 

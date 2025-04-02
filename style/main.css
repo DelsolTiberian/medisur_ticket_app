@@ -4,7 +4,6 @@ html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,ifr
 /* General */
 
 .center {
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,33 +11,28 @@ html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,ifr
 }
 
 .medisur-gradient {
-
     height: 100vh;
     background: linear-gradient(to bottom, #4CE7D2, #11607A);
     justify-content: center;
 }
 
 h1 {
-
     font-size: 40px;
     font-family: "Roboto", sans-serif;
     margin: 4vh;
 }
 
 form {
-
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     flex-grow: 1;
-
 }
 
 /* Log-In */
 
 .log-bg {
-
     display: flex;
     justify-content: normal;
     min-height: 40vh;
@@ -49,17 +43,15 @@ form {
 }
 
 .log-input {
-
     margin-top: 15px;
     border-radius:5px;
     background-color: rgba(178,179,179,0.65);
     border-style : none;
     height: 25px;
-
-
 }
-.submit{
 
+.submit{
+    /* Ajuster l'espacement sur des telephone entre les boxs et le titre (et plus grosses, il faut qu'elles soient épaisses comme sur la maquette) */
     display: flex;
     justify-content: flex-end;
     margin-top: 30px ;
@@ -69,9 +61,7 @@ form {
     padding: 2px 24px;
     height: 2rem;
     border-style : none;
-    transition-duration: 0.4s;
 }
+
 .submit:hover {
-    background-color: grey;
-    color: white;
 }

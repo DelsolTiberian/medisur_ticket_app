@@ -19,12 +19,25 @@
     <div class="log-bg center">
         <h1> Log-In</h1>
         <form class="center" action="index.php" method="post">
-            <input class="log-input" type="text" placeholder="Identifiant" name="id"/>
+            <input class="log-input" type="text" placeholder="Identifiant" name="user_id"/>
             <input class="log-input" type="password" placeholder="Mot De Passe" name="password"/>
             <input class="submit" type="submit" value="Connexion" />
 
             <?php
-                
+            error_reporting(E_ALL);
+            ini_set('display_errors', '1');
+
+
+            include 'php_assets/database_command.php';
+                $id = $_POST['user_id'] ?? NULL;
+                $password = $_POST['password'] ?? NULL;
+                if(isset($id) && isset($password)){
+                    $_SESSION["role"] = db_select("SELECT name FROM user JOIN role ON user.role = role.id WHERE user.last_name = '$id' AND password = '$password';")['name'] ?? NULL;
+                    if (isset($_SESSION["role"])){
+                        print_r($_SESSION["role"]);
+                    }
+                }
+
             ?>
 
         </form>

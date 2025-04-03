@@ -24,7 +24,19 @@
             <input class="submit" type="submit" value="Connexion" />
 
             <?php
-                
+            const DB_PATH = './database.sqlite';
+
+            function createDatabaseConnection() {
+                try {
+                    return new PDO("sqlite:" . DB_PATH);
+                } catch (PDOException $e) {
+                    die("Erreur : " . $e->getMessage());
+                }
+            }
+
+            $pdo = createDatabaseConnection();
+
+
             ?>
 
         </form>

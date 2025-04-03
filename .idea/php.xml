@@ -15,6 +15,11 @@
       <phpcs_by_interpreter asDefaultInterpreter="true" interpreter_id="f781bc13-d357-41db-9b39-1458fea608c1" timeout="30000" />
     </phpcs_settings>
   </component>
+  <component name="PhpProjectServersManager">
+    <servers>
+      <server host="localhost" id="5af56916-17d8-47ac-add5-7ca31fdd722e" name="test" />
+    </servers>
+  </component>
   <component name="PhpStan">
     <PhpStan_settings>
       <phpstan_by_interpreter asDefaultInterpreter="true" interpreter_id="f781bc13-d357-41db-9b39-1458fea608c1" timeout="60000" />

@@ -1,113 +1,54 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-SET NAMES utf8mb4;
-
---
--- Database: medisur
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table expense_category
---
-
 CREATE TABLE expense_category (
-                                  id_category INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                                  name_category VARCHAR(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table role
---
+                                  id INTEGER PRIMARY KEY AUTOINCREMENT ,
+                                  name TEXT DEFAULT NULL
+);
 
 CREATE TABLE role (
-                      id_role INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                      name_role VARCHAR(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table expense_status
---
+                      id INTEGER PRIMARY KEY AUTOINCREMENT,
+                      name TEXT
+);
 
 CREATE TABLE expense_status (
-                                id_status INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                                description_status VARCHAR(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+                                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                description TEXT
+);
 
--- --------------------------------------------------------
-
---
--- Table structure for table user
---
-
-CREATE TABLE user (
-                      id_user INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                      last_name VARCHAR(50) DEFAULT NULL,
-                      first_name VARCHAR(50) DEFAULT NULL,
-                      email VARCHAR(50) DEFAULT NULL,
-                      role SMALLINT(6) DEFAULT NULL,
-                      id_role INT(11) NOT NULL,
-                      profile_picture VARCHAR(50) DEFAULT NULL,
-                      FOREIGN KEY (id_role) REFERENCES role (id_role)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table expense
---
+CREATE TABLE user(
+                     id INTEGER PRIMARY KEY  AUTOINCREMENT ,
+                     last_name TEXT,
+                     first_name TEXT,
+                     email TEXT,
+                     profile_picture_url TEXT NULL,
+                     role INTEGER NOT NULL,
+                     FOREIGN KEY (role) REFERENCES role(id) ON DELETE CASCADE
+);
 
 CREATE TABLE expense (
-                         id_expense INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                         amount INT(11) DEFAULT NULL,
-                         creation_datetime DATETIME DEFAULT NULL,
-                         modification_datetime DATETIME DEFAULT NULL,
-                         description VARCHAR(50) DEFAULT NULL,
-                         receipt VARCHAR(50) DEFAULT NULL,
-                         id_user INT(11) NOT NULL,
-                         id_user_validator INT(11) NOT NULL,
-                         id_category INT(11) NOT NULL,
-                         id_status INT(11) NOT NULL,
-                         FOREIGN KEY (id_user) REFERENCES user (id_user),
-                         FOREIGN KEY (id_user_validator) REFERENCES user (id_user),
-                         FOREIGN KEY (id_category) REFERENCES expense_category (id_category),
-                         FOREIGN KEY (id_status) REFERENCES expense_status (id_status)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table permission
---
+                         id INTEGER PRIMARY KEY AUTOINCREMENT,
+                         amount INTEGER NOT NULL,
+                         creation_datetime TEXT NOT NULL,
+                         modification_datetime TEXT NULL,
+                         description TEXT NULL,
+                         receipt TEXT NULL,
+                         asking_user INTEGER NOT NULL,
+                         user_validator INTEGER NULL,
+                         category INTEGER NOT NULL,
+                         status INTEGER NOT NULL,
+                         FOREIGN KEY (asking_user) REFERENCES user (id) ON DELETE CASCADE,
+                         FOREIGN KEY (user_validator) REFERENCES user (id) ON DELETE CASCADE,
+                         FOREIGN KEY (category) REFERENCES expense_category (id) ON DELETE CASCADE,
+                         FOREIGN KEY (status) REFERENCES expense_status (id) ON DELETE CASCADE
+);
 
 CREATE TABLE permission (
-                            id_permission INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                            name_permission VARCHAR(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table role_permission
---
+                            id INTEGER PRIMARY KEY AUTOINCREMENT ,
+                            name TEXT NOT NULL
+);
 
 CREATE TABLE role_permission (
-                                 id_role INT(11) NOT NULL,
-                                 id_permission INT(11) NOT NULL,
-                                 PRIMARY KEY (id_role, id_permission),
-                                 FOREIGN KEY (id_role) REFERENCES role (id_role),
-                                 FOREIGN KEY (id_permission) REFERENCES permission (id_permission)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-COMMIT;
+                                 role INTEGER NOT NULL,
+                                 permission INTEGER NOT NULL,
+                                 PRIMARY KEY (role, permission),
+                                 FOREIGN KEY (role) REFERENCES role (id) ON DELETE CASCADE,
+                                 FOREIGN KEY (permission) REFERENCES permission (id) ON DELETE CASCADE
+);

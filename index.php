@@ -24,20 +24,21 @@
             <input class="submit" type="submit" value="Connexion" />
 
             <?php
-            error_reporting(E_ALL);
-            ini_set('display_errors', '1');
+                // Include important sql requesting functiuns
+                include 'php_assets/database_command.php';
 
-
-            include 'php_assets/database_command.php';
-                $id = $_POST['user_id'] ?? NULL;
+                $identifier = explode("_", $_POST['user_id']) ?? NULL; //user's identifer is composed with user's lastname + "_" +  user's firstname
                 $password = $_POST['password'] ?? NULL;
-                if(isset($id) && isset($password)){
-                    $_SESSION["role"] = db_select("SELECT name FROM user JOIN role ON user.role = role.id WHERE user.last_name = '$id' AND password = '$password';")['name'] ?? NULL;
+
+                if(isset($identifier) && isset($password)){
+                    // Ask if user exist and what is his role
+                    $user = db_select("SELECT role.name, user.id FROM user JOIN role ON user.role = role.id WHERE user.last_name LIKE '$identifier[0]' AND user.first_name LIKE '$identifier[1]' AND password LIKE '$password';") ?? NULL;
+                    $_SESSION["role"] = $user['name'];
+                    // If the user exist: redirect on his home page
                     if (isset($_SESSION["role"])){
-                        print_r($_SESSION["role"]);
+                        $_SESSION["user_id"] = $user['id']; // Only unic identifier that is independant of his first and last names
                     }
                 }
-
             ?>
 
         </form>

@@ -2,10 +2,10 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 5px;
-    background: #1E6684;
-    height: 6.9%;
+    height: 7%;
     width: 100%;
+    padding: 0 10px;
+    background: #1E6684;
 }
 
 nav h1 {
@@ -23,14 +23,9 @@ nav svg, nav a {
     width: auto;
 }
 
-nav a svg {
-    height: 100%;
+nav a svg, nav a img {
+    height: 4.9vh;
+    width: 4.9vh;
+    border-radius: 50%;
 }
 
-.login-icon {
-    height: 40px;
-    vertical-align: middle;
-    margin-right: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}

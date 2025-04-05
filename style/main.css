@@ -65,3 +65,33 @@ form {
 
 .submit:hover {
 }
+
+.log-user {
+    justify-content: center;
+    width: 90vw;
+    border-radius: 20px;
+}
+
+.log-user-input {
+    width: 75%;
+    height: 5vh;
+    background-color: #f0f0f0; /* Light gray background */
+    border-radius: 10px; /* Rounded edges */
+    border: 1px solid #ccc; /* Optional: Adds a border for better definition */
+    padding: 10px; /* Optional: Adds padding inside the input box */
+    margin: 5px 0; /* Optional: Adds space between input boxes */
+    .validate {
+        width: 37.5%;
+    }
+
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

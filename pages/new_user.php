@@ -14,6 +14,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body class="center">
+    <?php
+        include("../php_assets/topBar.php");
+    ?>
     <div class="log-user center" style = "margin-top: 8vh;">
         <h1 style="text-align: center; font-size: 30px;">Nouvel Utilisateur</h1>
         <form class="center" action="index.php" method="post">
@@ -31,7 +34,7 @@
         
     </div>
     <footer>
-        <button onclick="submit()" style="margin-right: 2vh;margin-bottom: 6vh; margin-left: -8vh; background: transparent; border: transparent">
+        <button onclick="" style="margin-right: 2vh;margin-bottom: 6vh; margin-left: -8vh; background: transparent; border: transparent">
             <svg width="6vh" height="6vh" viewBox="0 0 286 270" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M94.7368 121.333L136.105 162.333L274 25.6667M260.211 135V230.667C260.211 237.916 257.305 244.868 252.133 249.994C246.961 255.12 239.946 258 232.632 258H39.5789C32.2646 258 25.2497 255.12 20.0777 249.994C14.9056 244.868 12 237.916 12 230.667V39.3333C12 32.0841 14.9056 25.1317 20.0777 20.0057C25.2497 14.8798 32.2646 12 39.5789 12H191.263" stroke="black" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>

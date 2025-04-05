@@ -3,17 +3,8 @@ html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,ifr
 
 /* General */
 
-.center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.medisur-gradient {
+body {
     height: 100vh;
-    background: linear-gradient(to bottom, #4CE7D2, #11607A);
-    justify-content: center;
 }
 
 h1 {
@@ -28,6 +19,19 @@ form {
     align-items: center;
     width: 100%;
     flex-grow: 1;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.medisur-gradient {
+    height: 100vh;
+    background: linear-gradient(to bottom, #4CE7D2, #11607A);
+    justify-content: center;
 }
 
 /* Log-In */
@@ -63,8 +67,8 @@ form {
     border-style : none;
 }
 
-.submit:hover {
-}
+
+/* New USer Page */
 
 .log-user {
     justify-content: center;

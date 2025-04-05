@@ -13,9 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
-<body class="center">
+<body>
     <?php
-        include("../php_assets/topBar.php");
+        include("../php_assets/top_bar.php");
     ?>
     <div class="log-user center" style = "margin-top: 8vh;">
         <h1 style="text-align: center; font-size: 30px;">Nouvel Utilisateur</h1>
@@ -24,6 +24,7 @@
             <input class="log-input log-user-input" type="text" placeholder="Prénom" name="id"/>
             <input class="log-input log-user-input" type="password" placeholder="Mot De Passe" name="password"/>
             <select class="log-input log-user-input" name="role">
+                <option>Choisir une rôle</option>
                 <option value="admin">Admin</option>
                 <option value="user">Commercial</option>
                 <option value="user">Comptable</option>

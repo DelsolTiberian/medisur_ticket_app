@@ -4,8 +4,8 @@ nav {
     align-items: center;
     padding: 0 10px;
     background: #1E6684;
+    height: 6.9%;
     width: 100%;
-    box-sizing: border-box;
 }
 
 .logo img {
@@ -16,12 +16,9 @@ nav {
     margin-bottom: 5px;
 }
 
-.title {
+nav h1 {
     flex-grow: 1;
     text-align: center;
-}
-
-.title h1 {
     margin: 0;
     font-size: 32px;
     color: #1D1B20;

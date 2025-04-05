@@ -1,0 +1,73 @@
+/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
+html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}ul{list-style:none}button,input,select{margin:0}html{box-sizing:border-box}*,*::before,*::after{box-sizing:inherit}img,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+
+/* General */
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.medisur-gradient {
+    height: 100vh;
+    background: linear-gradient(to bottom, #4CE7D2, #11607A);
+    justify-content: center;
+}
+
+h1 {
+    font-size: 40px;
+    font-family: "Roboto", sans-serif;
+    margin: 4vh;
+}
+
+form {
+    width: 100%;
+    flex-grow: 1;
+}
+
+/* Log-In */
+
+.log-bg {
+    justify-content: normal;
+    height: 40vh;
+    width: 90vw;
+    background: rgba(151,215,217, 1);
+    box-shadow: rgba(0,0,0, 0.2) 0 4px 4px;
+    border-radius: 20px;
+}
+
+.log-input {
+    width: 75%;
+}
+
+.log-user {
+    justify-content: center;
+    width: 90vw;
+    border-radius: 20px;
+}
+
+.log-user-input {
+    width: 75%;
+    height: 5vh;
+    background-color: #f0f0f0; /* Light gray background */
+    border-radius: 10px; /* Rounded edges */
+    border: 1px solid #ccc; /* Optional: Adds a border for better definition */
+    padding: 10px; /* Optional: Adds padding inside the input box */
+    margin: 5px 0; /* Optional: Adds space between input boxes */
+    .validate {
+        width: 37.5%;
+    }
+
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

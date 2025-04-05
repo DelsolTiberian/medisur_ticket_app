@@ -2,18 +2,10 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10px;
+    padding: 0 5px;
     background: #1E6684;
     height: 6.9%;
     width: 100%;
-}
-
-.logo img {
-    height: 40px;
-    vertical-align: middle;
-    margin-right: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
 }
 
 nav h1 {
@@ -24,6 +16,15 @@ nav h1 {
     color: #1D1B20;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
+}
+
+nav svg, nav a {
+    height: 70%;
+    width: auto;
+}
+
+nav a svg {
+    height: 100%;
 }
 
 .login-icon {

@@ -37,7 +37,7 @@
                     if (isset($_SESSION["role"])){
                         $_SESSION["user_id"] = $user['id']; // Only unic identifier that is independant of his first and last names
                         $_SESSION["user_photo"] = $user['profile_picture_url'] ?? NULL;
-                        header("Location: ./pages/new_user.php");
+                        header("Location: ./pages/user_main.php");
                     }
                 }
             ?>

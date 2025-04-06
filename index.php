@@ -21,7 +21,7 @@
         <form class="center" action="index.php" method="post">
             <input class="log-input" type="text" placeholder="Identifiant" name="user_id"/>
             <input class="log-input" type="password" placeholder="Mot De Passe" name="password"/>
-            <input class="submit" type="submit" value="Connexion" />
+            <input class="log-input" type="submit" value="connexion" />
 
             <?php
                 // Include important sql requesting functiuns

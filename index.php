@@ -9,40 +9,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medisur Tickets</title>
-    <link rel="stylesheet" href="style/main.css">
     <!-- Imports -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="src/output.css" rel="stylesheet">
 </head>
-<body class="medisur-gradient center">
-    <div class="log-bg center">
-        <h1> Log-In</h1>
-        <form class="center" action="index.php" method="post">
-            <input class="log-input" type="text" placeholder="Identifiant" name="user_id"/>
-            <input class="log-input" type="password" placeholder="Mot De Passe" name="password"/>
-            <input class="log-input" type="submit" value="connexion" />
-
-            <?php
-                // Include important sql requesting functiuns
-                include 'php_assets/database_command.php';
-
-                $identifier = explode("_", $_POST['user_id']) ?? NULL; //user's identifer is composed with user's lastname + "_" +  user's firstname
-                $password = $_POST['password'] ?? NULL;
-                if(isset($identifier) && isset($password)){
-                    // Ask if user exist and what is his role
-                    $user = db_select("SELECT role.name, user.id, user.profile_picture_url FROM user JOIN role ON user.role = role.id WHERE user.last_name LIKE '$identifier[0]' AND user.first_name LIKE '$identifier[1]' AND password LIKE '$password';") ?? NULL;
-                    $_SESSION["role"] = $user['name'];
-                    // If the user exist: redirect on his home page
-                    if (isset($_SESSION["role"])){
-                        $_SESSION["user_id"] = $user['id']; // Only unic identifier that is independant of his first and last names
-                        $_SESSION["user_photo"] = $user['profile_picture_url'] ?? NULL;
-                        header("Location: ./pages/user_main.php");
-                    }
-                }
-            ?>
-
-        </form>
+<body >
+    <div class="bg-gradient-to-br from-purple-700 to-pink-500 min-h-screen flex flex-col justify-center items-center">
+        <div class="bg-white rounded-lg shadow-lg p-8 max-w-md">
+            <h1 class="text-4xl font-bold text-center text-purple-700 mb-8">Welcome to My Website</h1>
+            <form class="space-y-6">
+                <div>
+                    <label class="block text-gray-700 font-bold mb-2" for="email">
+                        Email
+                    </label>
+                    <input class="w-full px-4 py-2 rounded-lg border border-gray-400" id="email" name="email"
+                           type="email">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-bold mb-2" for="password">
+                        Password
+                    </label>
+                    <input class="w-full px-4 py-2 rounded-lg border border-gray-400" id="password" name="password"
+                           type="password">
+                </div>
+                <div>
+                    <button class="w-full bg-purple-700 hover:bg-purple-900 text-white font-bold py-2 px-4 rounded-lg">
+                        Log In
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 </html>

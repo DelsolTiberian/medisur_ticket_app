@@ -17,7 +17,9 @@ include("../php_assets/top_bar.php");
 <div class="center">
     <h1>Tickets</h1>
     <?php 
-
+        include "../php_assets/ticket.php";
+        $test = new Ticket(3, "logement", "2021-01-01", 100, "me", "logement", "logement");
+        $test->display();
     ?>
 </div>
 </body>

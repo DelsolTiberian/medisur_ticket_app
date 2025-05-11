@@ -1,5 +1,4 @@
 
-<link rel="stylesheet" href="../style/ticket.css">
 <?php
 
 class Ticket
@@ -12,29 +11,29 @@ class Ticket
     public $description;
     public $justification;
 
-    function __construct($status, $type, $date, $amount, $owner, $description, $justification) {
-        $this->status = $status;
-        $this->type = $type;
-        $this->date = $date;
-        $this->amount = $amount;
-        $this->owner = $owner;
-        $this->description = $description;
-        $this->justification = $justification;
+    function __construct($info) {
+        $this->status = $info['status'];
+        $this->type = $info['expense_category_name'];;
+        $this->date = $info['creation_datetime'];
+        $this->amount = $info['amount'];
+        $this->owner = $info['last_name'] . " " . $info['first_name'];
+        $this->description = $info['description'];
+        $this->justification = $info['receipt'];
     }
 
     function display() {
         $str = "<div class='ticket-bg'> <div class='ticket-top'>";
         switch ($this->status) {
             case 3:
-                $str .= "<svg width='448' height='448' viewBox='0 0 448 448' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M286.5 161.5L161.5 286.5M161.5 161.5L286.5 286.5M432.333 224C432.333 339.059 339.059 432.333 224 432.333C108.941 432.333 15.6667 339.059 15.6667 224C15.6667 108.941 108.941 15.6666 224 15.6666C339.059 15.6666 432.333 108.941 432.333 224Z' stroke='#FF3B30' stroke-width='30' stroke-linecap='round' stroke-linejoin='round'/></svg> ";
+                $str .= "<img src='../assets/condition_3.png' alt='status 3'/> ";
                 break;
             case 2:
-                $str .= "<svg width='500' height='500' viewBox='0 0 500 500' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M458.333 230.833V250C458.308 294.925 443.76 338.639 416.861 374.621C389.962 410.604 352.152 436.927 309.07 449.665C265.988 462.402 219.943 460.873 177.801 445.304C135.66 429.735 99.6802 400.96 75.2282 363.272C50.7763 325.584 39.1622 281.001 42.1182 236.173C45.0741 191.345 62.4417 148.673 91.6307 114.522C120.82 80.3712 160.266 56.5704 204.087 46.6697C247.908 36.7689 293.755 41.2986 334.792 59.5833M458.333 83.3333L250 291.875L187.5 229.375' stroke='#34C759' stroke-width='30' stroke-linecap='round' stroke-linejoin='round'/></svg> ";
+                $str .= "<img src='../assets/condition_2.png' alt='status 2'/> ";
                 break;
             default:
-                $str .= "<svg width='500' height='500' viewBox='0 0 500 500' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M82.1494 255.487C82.1494 246.715 84.9245 239.374 90.4746 233.466C96.2038 227.558 103.455 224.514 112.228 224.335C121 224.156 128.162 226.841 133.712 232.392C139.441 237.942 142.216 245.103 142.037 253.876C142.037 262.649 139.173 269.9 133.443 275.629C127.893 281.358 120.732 284.312 111.959 284.491C103.365 284.67 96.2038 282.074 90.4746 276.703C84.7454 271.332 81.9704 264.26 82.1494 255.487ZM222.872 255.487C222.872 246.715 225.647 239.374 231.197 233.466C236.926 227.558 244.177 224.514 252.95 224.335C261.723 224.156 268.884 226.841 274.435 232.392C280.164 237.942 282.939 245.103 282.76 253.876C282.76 262.649 279.895 269.9 274.166 275.629C268.616 281.358 261.454 284.312 252.682 284.491C244.088 284.67 236.926 282.074 231.197 276.703C225.468 271.332 222.693 264.26 222.872 255.487ZM363.595 255.487C363.595 246.715 366.37 239.374 371.92 233.466C377.649 227.558 384.9 224.514 393.673 224.335C402.446 224.156 409.607 226.841 415.157 232.392C420.886 237.942 423.661 245.103 423.482 253.876C423.482 262.649 420.618 269.9 414.889 275.629C409.339 281.358 402.177 284.312 393.404 284.491C384.811 284.67 377.649 282.074 371.92 276.703C366.191 271.332 363.416 264.26 363.595 255.487Z' fill='#007AFF'/><path d='M250 458.333C365.059 458.333 458.333 365.059 458.333 250C458.333 134.941 365.059 41.6666 250 41.6666C134.941 41.6666 41.6667 134.941 41.6667 250C41.6667 365.059 134.941 458.333 250 458.333Z' stroke='#007AFF' stroke-width='30' stroke-linecap='round' stroke-linejoin='round'/></svg> ";
+                $str .= "<img src='../assets/condition_1.png' alt='status 1'/> ";
         }
-        $str .= "<span>" .  $this->type . "</span> <span>" . $this-> date . "</span> <span>" . $this -> amount ."€</span> </div>";
+        $str .= "<span class='type'>" .  $this->type . "</span> <span class='date'>" . $this-> date . "</span> <span>" . $this -> amount ."€</span> </div> </div>";
         echo $str;
 
 

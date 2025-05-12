@@ -19,14 +19,14 @@
         include("../php_assets/top_bar.php");
     ?>
     <div class="log-user center">
-        <h1>Nouveau ticket</h1>
+        <h1>Nouveau Ticket</h1>
         <?php
         $flags = [
-            'prenom' => true,
-            'nom' => true,
-            'password' => true,
-            'role' => true,
-            'pfp' => true,
+            'userlist' => true,
+            'typedepense' => true,
+            'montant' => true,
+            'description' => true,
+            'justif' => true,
             'validation' => true,
             'anullation' => true,
         ];
@@ -34,7 +34,7 @@
         include '../php_assets/form.php';
         Form($flags);
         ?>
+
     </div>
 </body>
 </html>
- 

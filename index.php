@@ -33,14 +33,12 @@
                     $expl_id = explode("_", $identifier);
                     // Si c'est le format d'un identifiant valide
                     if (count($expl_id) == 2) {
-                        $info = db_request("SELECT user.id, user.password, permission.name, user.profile_picture_url FROM user JOIN role ON user.role = role.id JOIN role_permission ON role.id = role_permission.role JOIN permission ON role_permission.permission = permission.id WHERE user.last_name = ? AND user.first_name = ?", [$expl_id[0], $expl_id[1]]);
+                        $info = db_request("SELECT id, password, profile_picture_url, role FROM user WHERE user.last_name = ? AND user.first_name = ?", [$expl_id[0], $expl_id[1]]);
+                        $info = $info[0];
                         if (!empty($info) and password_verify($password, $info['password'])) {
                             $_SESSION['identifier'] = $info['id'];
                             $_SESSION['user_photo'] = $info['profile_picture_url'];
-                            $_SESSION['permission'] = [];
-                            for ($i = 1; $i < count($info); $i++) {
-                                $_SESSION['permission'][] = $info[$i];
-                            }
+                            $_SESSION['role'] = $info['role'];
                             header("Location: ./pages/user_main.php");
                         }
                     }

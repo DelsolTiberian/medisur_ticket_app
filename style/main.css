@@ -111,7 +111,7 @@ input[type="password"] {
 /* Main Page */
 
 .ticket-list {
-    width: 80%;
+    width: 90%;
     height: 55vh;
     display: flex;
     flex-direction: column;
@@ -132,7 +132,7 @@ input[type="password"] {
 }
 
     /* Tickets */
-    .ticket-bg {
+    .ticket {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -144,14 +144,14 @@ input[type="password"] {
     }
 
     .ticket-top {
-        height: 5vh;
+        height: 6vh;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-evenly;
     }
 
-    .ticket-bg img {
+    .ticket img {
         height: 30px;
         width: 30px;
     }
@@ -160,6 +160,46 @@ input[type="password"] {
         width: 25%;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+
+    .owner {
+        width: 100%;
+        text-align: left;
+    }
+
+    .description {
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        text-align: left;
+        font-size: 0.8em;
+    }
+
+    .receipt-download {
+        width: 37%;
+        height: 4vh;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8em;
+        background-color: #c0c0c0;
+        text-decoration: none;
+        color: black;
+    }
+
+    .receipt-download svg {
+        height: 2.5vh;
+        width: 2.5vh;
+        padding-right: 2px;
+    }
+
+    .ticket-bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 10px 0 20px;
     }
 
 /* New User Page */
@@ -236,8 +276,19 @@ footer {
 
     /* Main Page */
 
+    /* Hide*/
     .desktop-only {
         display: block;
         width: 30%;
     }
+
+    .mobile-only {
+        display: none;
+    }
+}
+
+/* hide */
+
+.hide {
+    display: none;
 }

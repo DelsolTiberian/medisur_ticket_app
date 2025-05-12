@@ -2,10 +2,18 @@
 html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}ul{list-style:none}button,input,select{margin:0}html{box-sizing:border-box}*,*::before,*::after{box-sizing:inherit}img,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
 
 /* General */
+body {
+    height: 100vh;
+}
+
+.desktop-only {
+    display: none;
+}
+
 h1 {
     font-size: 40px;
     font-family: "Roboto", sans-serif;
-    margin-top: 4vh;
+    margin-top: 3.5vh;
 }
 
 form {
@@ -79,6 +87,81 @@ input[type="password"] {
     color: white;
 }
 
+/* Top-Btn */
+
+.convenient-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    margin-top: 20px;
+    padding-bottom: 40px;
+}
+
+.convenient-btn button{
+    width: 25%;
+    height: 4vh;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.1em;
+    font-family: "Roboto", sans-serif;
+}
+
+/* Main Page */
+
+.ticket-list {
+    width: 80%;
+    height: 55vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    overflow-y: scroll;
+    border-radius: 20px;
+}
+
+.main-container {
+    flex-direction: row;
+    align-items: normal;
+    justify-content: normal;
+}
+
+.left-container {
+    flex-grow: 1;
+}
+
+    /* Tickets */
+    .ticket-bg {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: #D9D9D9;
+        padding: 10px 10px 10px 0;
+        border-radius: 20px;
+        font-family: "Roboto", sans-serif;
+        font-size: 1.2em;
+    }
+
+    .ticket-top {
+        height: 5vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .ticket-bg img {
+        height: 30px;
+        width: 30px;
+    }
+
+    .type {
+        width: 25%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
 /* New User Page */
 
 .log-user {
@@ -90,15 +173,14 @@ input[type="password"] {
 .log-user-input {
     width: 75%;
     height: 5vh;
-    background-color: #f0f0f0; /* Light gray background */
-    border-radius: 10px; /* Rounded edges */
-    border: 1px solid #ccc; /* Optional: Adds a border for better definition */
-    padding: 10px; /* Optional: Adds padding inside the input box */
-    margin: 5px 0; /* Optional: Adds space between input boxes */
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px 0;
     .validate {
         width: 37.5%;
     }
-
 }
 
 footer {
@@ -124,6 +206,7 @@ footer {
 @media only screen and (min-width: 700px) {
 
     /* general */
+
     h1 {
         font-size: 60px;
     }
@@ -151,4 +234,10 @@ footer {
         max-width: 900px;
     }
 
+    /* Main Page */
+
+    .desktop-only {
+        display: block;
+        width: 30%;
+    }
 }

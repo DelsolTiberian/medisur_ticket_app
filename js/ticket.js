@@ -7,12 +7,19 @@ export default function viewTicketList() {
      * @returns {void}
      */
     let tickets = document.getElementsByClassName('ticket');
-    let currentTicket = tickets[0];
+    let currentTicket = 0;
     for (let ticket of tickets) {
         ticket.addEventListener('click', function () {
-            currentTicket.lastElementChild.classList.add('hide');
-            currentTicket = ticket;
-            ticket.lastElementChild.classList.remove('hide');
+            let ticketBottom = ticket.lastElementChild;
+            if (ticketBottom.classList.contains('hide')) {
+                ticketBottom.classList.remove('hide');
+                if (currentTicket != ticket.dataset.index) {
+                    tickets[currentTicket].lastElementChild.classList.add('hide');
+                    currentTicket = ticket.dataset.index;
+                }
+            } else {
+                ticketBottom.classList.add('hide');
+            }
         })
     }
 }

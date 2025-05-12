@@ -5,5 +5,5 @@ function db_request($command, $param = [], $path = ".\database.sqlite") {
     $stmt = $pdo->prepare($command);
     $stmt->execute($param);
     $pdo = null;
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);;
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 };

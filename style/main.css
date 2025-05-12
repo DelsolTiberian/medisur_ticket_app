@@ -130,6 +130,45 @@ input[type="password"] {
 .left-container {
     flex-grow: 1;
 }
+    /* Button */
+    .btn-container {
+        margin-top: 6vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn-container img {
+        width: 100%;
+    }
+
+    .btn-container button {
+        width: 16%;
+        border-radius: 10px;
+        border: none;
+    }
+
+    .btn-container .side-btn {
+        width: 15%;
+        margin-top: 4vh;
+    }
+
+    .btn-container .other-side-btn {
+        margin-top: 2vh;
+        width: 13%;
+    }
+
+    .big-btn {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .big-btn .other-side-btn {
+        width: 20%;
+    }
 
     /* Tickets */
     .ticket {
@@ -170,6 +209,7 @@ input[type="password"] {
     .description {
         width: 100%;
         padding-top: 10px;
+        padding-right: 40%;
         padding-bottom: 20px;
         text-align: left;
         font-size: 0.8em;
@@ -275,6 +315,8 @@ footer {
     }
 
     /* Main Page */
+
+
 
     /* Hide*/
     .desktop-only {

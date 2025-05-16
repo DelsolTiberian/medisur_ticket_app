@@ -12,11 +12,13 @@
 </head>
 <body>
     <?php
+        ini_set('display_errors', 0);
         include("../php_assets/top_bar.php");
     ?>
     <div class="log-user center">
         <h1>Nouvel Utilisateur</h1>
         <?php
+        $firstName = $lastName = $email = $password = $role_id = $profilePicturePath = '';
         $flags = [
             'prenom' => true,
             'nom' => true,
@@ -58,22 +60,44 @@
                 // Handle image upload
                 if (isset($_FILES['prouf']) && $_FILES['prouf']['error'] === UPLOAD_ERR_OK) {
                     $tmpFile = $_FILES['prouf']['tmp_name'];
+                    $originalName = $_FILES['prouf']['name'];
                     $fileType = mime_content_type($tmpFile);
+                    $allowedTypes = ['image/png', 'image/jpeg'];
 
-                    // Only allow image/png or image/jpeg
-                    if (in_array($fileType, ['image/png', 'image/jpeg'])) {
+                    if (in_array($fileType, $allowedTypes)) {
+                        $mimeToExt = [
+                            'image/png' => 'png',
+                            'image/jpeg' => 'jpg',
+                        ];
+
+                        $extension = $mimeToExt[$fileType] ?? '';
+
+                        if ($extension === '') {
+                            echo "❌ Type de fichier non autorisé.";
+                            return;
+                        }
+
+                        $uuid = uniqid('', true);
+                        $newFileName = $uuid . '.' . $extension;
+
+                        $uploadPath = $newFileName;
+
                         if (!move_uploaded_file($tmpFile, $uploadPath)) {
                             echo "❌ Échec de l'enregistrement du fichier.";
                             return;
                         }
+
+                        $profilePicturePath = $uploadPath;
+
                     } else {
-                        echo "❌ Type de fichier non autorisé.";
+                        echo "❌ Type de fichier non autorisé (seulement PNG ou JPEG).";
                         return;
                     }
                 } else {
                     echo "❌ Aucun fichier image fourni ou erreur lors de l'upload.";
                     return;
                 }
+
 
                 // Now insert into DB
                 try {
@@ -85,11 +109,13 @@
                         $email,
                         password_hash($password, PASSWORD_BCRYPT),
                         $role_id,
-                        $uploadPath
+                        $profilePicturePath
                     ];
 
-                    db_request($sql, $params, '../database.sqlite');
-                    echo "✅ Utilisateur ajouté avec succès !";
+                    db_request_ticket($sql, $params, '../database.sqlite');
+
+                    header("Location: new_user.php?success=1");
+                    exit();
 
                 } catch (Exception $e) {
                     echo "❌ Erreur : " . $e->getMessage();

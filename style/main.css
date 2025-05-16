@@ -6,10 +6,6 @@ body {
     height: 100vh;
 }
 
-.desktop-only {
-    display: none;
-}
-
 h1 {
     font-size: 40px;
     font-family: "Roboto", sans-serif;
@@ -26,6 +22,16 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.align-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.align-left {
+    display: flex;
+    justify-content: flex-start;
 }
 
 .medisur-gradient {
@@ -108,6 +114,13 @@ input[type="password"] {
     font-family: "Roboto", sans-serif;
 }
 
+.convenient-btn button:active{
+    background-color: #c0c0c0;
+    box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 3px;
+    transform: scale(1.2);
+    transition: ease-in-out 0.3s;
+}
+
 /* Main Page */
 
 .ticket-list {
@@ -127,11 +140,9 @@ input[type="password"] {
     justify-content: normal;
 }
 
-.left-container {
-    flex-grow: 1;
-}
     /* Button */
     .btn-container {
+        width: 100vw;
         margin-top: 6vh;
         display: flex;
         flex-direction: row;
@@ -144,30 +155,37 @@ input[type="password"] {
     }
 
     .btn-container button {
-        width: 16%;
+        width: 14%;
         border-radius: 10px;
         border: none;
+        background: none;
     }
 
     .btn-container .side-btn {
-        width: 15%;
+        width: 12%;
         margin-top: 4vh;
     }
 
     .btn-container .other-side-btn {
         margin-top: 2vh;
-        width: 13%;
+        width: 10%;
     }
 
-    .big-btn {
+    .btn-container .other-side-btn.big-btn {
+        height: 50px;
+        width: auto;
+    }
+
+    .big-btn img {
+        width: 8vh;
+    }
+
+    .btn-container .btn-container {
+        margin-top: 0;
         width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-    }
-
-    .big-btn .other-side-btn {
-        width: 20%;
     }
 
     /* Tickets */
@@ -191,8 +209,8 @@ input[type="password"] {
     }
 
     .ticket img {
-        height: 30px;
-        width: 30px;
+        height: 60%;
+        width: auto;
     }
 
     .type {
@@ -277,6 +295,9 @@ footer {
 
 
 
+.desktop-only {
+    display: none;
+}
 
 
 
@@ -286,6 +307,10 @@ footer {
 @media only screen and (min-width: 700px) {
 
     /* general */
+
+    .desktop-only {
+        display: block;
+    }
 
     h1 {
         font-size: 60px;
@@ -315,15 +340,83 @@ footer {
     }
 
     /* Main Page */
-
-
-
-    /* Hide*/
-    .desktop-only {
-        display: block;
-        width: 30%;
+    .main-container {
+        height: 90%;
     }
 
+    .ticket-list {
+        padding-top: 30px;
+        height: 70%;
+    }
+
+    .ticket {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        padding: 10px 10px 10px 0;
+        font-family: "Roboto", sans-serif;
+        font-size: 1.6em;
+        border-radius: 10px;
+    }
+
+    .ticket-top {
+        height: 4vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 25px;
+    }
+    .btn-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 50vw;
+        max-width: 1050px;
+        gap: 20px;
+    }
+
+    .btn-container div {
+        display: flex;
+        gap: 20px;
+        flex-grow: 1;
+    }
+
+    .btn-container button{
+        width: auto;
+        padding: 1.2vh 2.5vw;
+        font-size: 1.2em;
+        background-color: #d9d9d9;
+        box-shadow: rgba(0, 0, 0, 0.25) -2px -2px 3px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        white-space: nowrap;
+    };
+
+    .btn-container button:hover {
+        background-color: #c0c0c0;
+        box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 3px;
+        transform: scale(1.02);
+        transition: ease 0.1s;
+    }
+
+    .btn-container button:active {
+        background-color: #969696;
+        box-shadow: inset rgba(0, 0, 0, 0.25) 3px 3px 3px;
+        transform: scale(1.02);
+        transition: ease 0.1s;
+    }
+
+    .left-container {
+        width: 70vw;
+    }
+
+    .right-container {
+        width: 30vw;
+    }
+
+    /* Hide*/
     .mobile-only {
         display: none;
     }

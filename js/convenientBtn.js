@@ -3,5 +3,4 @@ export default function filter() {
     filterBtn.addEventListener('click', function () {
         document.getElementById('filter-form').classList.remove('hide');
     })
-
 }

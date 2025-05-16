@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medisur Tickets</title>
     <link rel="stylesheet" href="style/main.css">
-    <link rel="stylesheet" href="style/main.css?v=<?php echo time(); ?>">
     <!-- Imports -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,10 +33,10 @@
                     // Si c'est le format d'un identifiant valide
                     if (count($expl_id) == 2) {
                         $info = db_request("SELECT id, password, profile_picture_url, role FROM user WHERE user.last_name = ? AND user.first_name = ?", [$expl_id[0], $expl_id[1]]);
-                        $info = $info[0];
-                        if (!empty($info) and password_verify($password, $info['password'])) {
+                        if (!empty($info) and password_verify($password, $info[0]['password'])) {
+                            $info = $info[0];
                             $_SESSION['identifier'] = $info['id'];
-                            $_SESSION['user_photo'] = $info['profile_picture_url'];
+                            $_SESSION['user_photo'] = $info['profile_picture_url'] ?? null;
                             $_SESSION['role'] = $info['role'];
                             header("Location: ./pages/user_main.php");
                         }
